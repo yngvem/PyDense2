@@ -23,21 +23,24 @@ import matplotlib.pyplot as plt
 from pydense2 import crf_model, potentials
 
 # Create unary potential
-unary = potentials.UnaryPotentialFromProbabilities(one_class_probabilities=True)
+unary = potentials.UnaryPotentialFromProbabilities(
+    one_class_probabilities=False    # There are one set of probabilities per class,
+                                     # this can only be true in the binary class problem
+)
 # Create pairwise potentials
 bilateral_pairwise = potentials.BilateralPotential(
-    spatial_sigma=10,
-    colour_sigma=1,
-    compatibility=4
+    spatial_sigma=10,           # Diagonal sigma matrix, where all the diagonal values are 10
+    colour_sigma=1,             # Diagonal sigma matrix, where all the diagonal values are 1
+    compatibility=4             # A potts like compatibility function.
 )
 gaussian_pairwise = potentials.GaussianPotential(
-    sigma=10,
-    compatibility=2
+    sigma=10,                   # Diagonal sigma matrix, where all the diagonal values are 10
+    compatibility=2             # A potts like compatibility function
 )
 
 # Create CRF model and add potentials
 crf = crf_model.DenseCRF(
-    num_classes=2,
+    num_classes=2,              # The number of output classes
     unary_potential=unary,
     binary_potentials=[bilateral_pairwise, gaussian_pairwise]
 )
@@ -50,8 +53,8 @@ probabilities = np.load('image.npy')
 crf.set_image(
     image=image,
     probabilities=probabilities,
-    colour_axis=-1,
-    class_axis=-1
+    colour_axis=-1,                 # The axis corresponding to colour is the last axis in the image
+    class_axis=-1                   # The axis corresponding to which class the probabilities are for is the last axis in the probabilities array
 )
 # Refine the mask, doing 10 iterations
 crf.perform_inference(10)
