@@ -5,6 +5,13 @@ The [PyDenseCRF](https://github.com/lucasb-eyer/pydensecrf) package by [Lucas Be
 
 This is a tool for post-processing of image segmentation masks, and before using it you should have precomputed class probabilities for each label. Training is unfortunately not supported by this tool.
 
+### Installation guide:
+Open a terminal window and navigate to the folder that you want to download PyDense2 into. Write ```git clone https://github.com/yngvem/PyDense2.git``` in the terminal window, followed by ```cd PyDense2``` and at last ```python setup.py install```. PyDense2 can then be imported into any Python file.
+
+#### Import errors:
+If you get a cryptic error on import, then you are probably missing libgcc as part of your Python installation. If you are using Anaconda this can be fixed by typing ```conda install libgcc``` in a terminal window.
+
+
 ### Example code
 Here is a simple example where the probability mask and image is stored as numpy array files.
 ```python
@@ -61,5 +68,3 @@ plt.title('Segmentation mask after 20 iterations')
 plt.imshow(refined_mask20)
 ```
 
-## Import errors:
-If you get a cryptic error on import, then you are probably missing libgcc as part of your Python installation. If you are using Anaconda this can be fixed by typing ```conda install libgcc``` in a terminal window.
