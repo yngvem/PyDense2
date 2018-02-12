@@ -6,7 +6,7 @@ The [PyDenseCRF](https://github.com/lucasb-eyer/pydensecrf) package by [Lucas Be
 This is a tool for post-processing of image segmentation masks, and before using it you should have precomputed class probabilities for each label. Training is unfortunately not supported by this tool.
 
 ### Example code
-Here is a simple example where the probability mask and image is stored as a PNG image.
+Here is a simple example where the probability mask and image is stored as numpy array files.
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
