@@ -11,6 +11,9 @@ Open a terminal window and navigate to the folder that you want to download PyDe
 #### Import errors:
 If you get a cryptic error on import, then you are probably missing libgcc as part of your Python installation. If you are using Anaconda this can be fixed by typing ```conda install libgcc``` in a terminal window.
 
+### Supported potentials:
+The unary potentials must come from precomputed class probabilities. In addition to this, two different pairwise potentials are supported. Gaussian potentials and bilateral potentials. Gaussian potentials, which are given by the function
+![](http://latex.codecogs.com/gif.latex?\mu(y_i,&space;y_j)&space;exp((x_i&space;-&space;x_j)^T\Sigma^{-1}(x_i&space;-&space;x_j)))
 
 ### Example code
 Here is a simple example where the probability mask and image is stored as numpy array files.
