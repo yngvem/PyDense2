@@ -16,7 +16,7 @@ The unary potentials must come from precomputed class probabilities. In addition
 
 
 ### Example code
-Here is a simple example where the probability mask and image is stored as numpy array files.
+Here is a simple example where the probability mask and image is stored as numpy array files. This will work with images of any dimensions (1d signals, 2d images, 3d images, videos, etc).
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
