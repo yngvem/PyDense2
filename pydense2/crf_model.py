@@ -77,7 +77,13 @@ class DenseCRF:
         self._create_model()
         self._set_potentials()
         self._start_inference()        
-        
+
+    def set_image_and_predict(self, image, probabilities, colour_axis=None,
+                              class_axis=None, num_steps=50):
+        self.set_image(image, probabilities, colour_axis, class_axis)
+        self.perform_inference(num_steps)
+        return self.segmentation_map
+
     def _create_model(self):
         self.crf_model = dense_crf.DenseCRF(np.prod(self.image_shape),
                                             self.num_classes)
@@ -113,6 +119,8 @@ class DenseCRF:
         """
         for _ in range(num_steps):
             self.inference_step()
+        
+        return self.segmentation_map
 
     def fix_negative_index(self, idx):
         if idx < 0:
