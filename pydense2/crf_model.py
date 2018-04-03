@@ -15,7 +15,7 @@ class DenseCRF:
     def __init__(self, num_classes, unary_potential, pairwise_potentials):
         """A wrapper for the PyDenseCRF functions. 
         
-        Currently only 2D images are supported.
+        Images of any dimensionality is supported.
         
         Arguments
         ---------
