@@ -74,3 +74,6 @@ plt.title('Segmentation mask after 20 iterations')
 plt.imshow(refined_mask20)
 ```
 
+A separate class is supplied for evaluating a CRF model (currently, only the Dice metric is usable, more might be added later). It takes a list of test images and computes the evaluation metric for each of those images in parallel. Joblib is used to perform these computations (if `n_jobs` is not set to 1). This requires all objects to be pickleable, however, the GaussianPotentials are not (this is a weakness of the PyDenseCRF package) so `n_jobs` must be set to 1 if you want to use the CRF evaluator with Gaussian potentials.
+
+Examples of the evaluator will come later.
