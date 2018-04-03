@@ -10,6 +10,13 @@ from sklearn import metrics
 
 
 class CRFEvaluator:
+    """Class used to compute evaluation metrics for a given CRF model.
+    
+    WARNING:
+    Parallel evaluation does not work when using the Gaussian potentials as
+    they are not picclable.
+    """
+    
     def __init__(self, model, images, probabilities, true_masks, colour_axis,
                  class_axis):
         """Used to evaluate a specific CRF model.
