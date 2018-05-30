@@ -206,4 +206,5 @@ class GaussianPotential(PairwisePotential):
         ]
         return crf_utils.create_pairwise_gaussian(
             sdims=spatial_sigmas,
+            shape=shape
         )
